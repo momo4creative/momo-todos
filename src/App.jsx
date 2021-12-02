@@ -7,7 +7,7 @@ export default function App() {
   const { ApiAuth } = useApiContext();
 
   useLayoutEffect(() => {
-    // ApiAuth.get().then((res) => console.log(res));
+    ApiAuth.get().then((res) => console.log(res));
   }, []);
 
   return (
