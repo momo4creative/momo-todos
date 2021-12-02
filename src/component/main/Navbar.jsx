@@ -16,14 +16,11 @@ export default function Navbar() {
 
 const LinkTo = ({ label, ...props }) => {
   return (
-    <NavLink
+    <Link
       {...props}
-      //   key={label}
-      className={`block px-4 py-2  hover:text-gray-100 hover:bg-gray-700 ${({
-        active,
-      }) => (active ? "text-blue-500" : "text-gray-400")}`}
+      className={`block px-4 py-2  hover:text-gray-100 hover:bg-gray-700 text-gray-400`}
     >
       {label}
-    </NavLink>
+    </Link>
   );
 };

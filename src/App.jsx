@@ -1,8 +1,15 @@
-import {} from "react";
+import { useLayoutEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Auth, Home, Login, Register, Todos } from "./pages";
+import { useApiContext } from "./contexts/ApiContext";
 
 export default function App() {
+  const { ApiAuth } = useApiContext();
+
+  useLayoutEffect(() => {
+    // ApiAuth.get().then((res) => console.log(res));
+  }, []);
+
   return (
     <>
       <Routes>
