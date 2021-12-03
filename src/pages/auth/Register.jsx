@@ -27,19 +27,20 @@ export default function Register() {
   //
   return (
     <div className="space-y-8">
-      <header>
-        <div className="text-4xl">Registrasi</div>
-        <p className="text-gray-400">
+      <header className="space-y-4">
+        <div className="text-4xl font-bold tracking-wider">Registrasi</div>
+        <p className="text-gray-500">
           Lengkapi form untuk registrasi pengguna baru
         </p>
       </header>
 
-      <form onSubmit={formik.handleSubmit} className="space-y-4">
+      <form onSubmit={formik.handleSubmit} className="space-y-6">
         <InputField
           type="text"
-          label="Nama Penguna"
+          label="Nama Akun"
           name="username"
           {...formik.getFieldProps("username")}
+          error={formik.errors["username"]}
         >
           {formik.touched["username"] && formik.errors["username"]
             ? formik.errors["username"]
@@ -51,6 +52,7 @@ export default function Register() {
           label="Kata Sandi"
           name="password"
           {...formik.getFieldProps("password")}
+          error={formik.errors["password"]}
         >
           {formik.touched["password"] && formik.errors["password"]
             ? formik.errors["password"]
@@ -62,13 +64,14 @@ export default function Register() {
           label="Ulangi Sandi"
           name="confirmPassword"
           {...formik.getFieldProps("confirmPassword")}
+          error={formik.errors["confirmPassword"]}
         >
           {formik.touched["confirmPassword"] && formik.errors["confirmPassword"]
             ? formik.errors["confirmPassword"]
             : null}
         </InputField>
 
-        <ButtonForm type="submit" label="Daftar" />
+        <ButtonForm type="submit" label="Daftar" formik={formik} />
       </form>
     </div>
   );
