@@ -25,6 +25,7 @@ export default function ApiContextProvider({ children }) {
     },
   };
 
+  // FETCH DATA
   const fetchData = async (method = "get", url = "", data = null) => {
     try {
       const response = await axios[method](API_URL + url, data, headerOpt);
@@ -48,6 +49,7 @@ export default function ApiContextProvider({ children }) {
     }
   };
 
+  // API AUTH
   const ApiAuth = {
     get: async () => {
       setIsLoading(true);
@@ -55,8 +57,15 @@ export default function ApiContextProvider({ children }) {
     },
   };
 
+  // API TODOS
+  const ApiTodos = {
+    getAll: async () => {
+      fetchData("get", "/todos");
+    },
+  };
+
   return (
-    <ApiContext.Provider value={{ ApiAuth }}>
+    <ApiContext.Provider value={{ ApiAuth, ApiTodos }}>
       <>{children}</>
     </ApiContext.Provider>
   );

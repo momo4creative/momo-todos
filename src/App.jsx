@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Auth, Home, Login, Register, Todos } from "./pages";
+import { Auth, Home, Login, Register, Todos, Admin } from "./pages";
 import { useApiContext } from "./contexts/ApiContext";
 
 export default function App() {
@@ -21,6 +21,7 @@ export default function App() {
             <Route path="register" element={<Register />} />
           </Route>
         </Route>
+        <Route path="/admin" element={<Admin />}></Route>
       </Routes>
     </>
   );
