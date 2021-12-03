@@ -1,8 +1,16 @@
-import {} from "react";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer, Navbar, SideMenu } from "../../components/dashboard";
+import { useApiContext } from "../../contexts/ApiContext";
 
 export default function Dashboard() {
+  // context
+  const { ApiAuth } = useApiContext();
+
+  useEffect(() => {
+    ApiAuth.get();
+  }, []);
+
   return (
     <main className="flex flex-col min-h-screen">
       <Navbar />

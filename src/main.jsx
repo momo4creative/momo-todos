@@ -4,11 +4,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import { ApiContextProvider, MainContextProvider } from "./contexts";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <MainContextProvider>
+        <ApiContextProvider>
+          <App />
+        </ApiContextProvider>
+      </MainContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

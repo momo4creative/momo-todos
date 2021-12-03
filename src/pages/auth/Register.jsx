@@ -2,8 +2,12 @@ import {} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ButtonForm, InputField } from "../../components/auth";
+import { useApiContext } from "../../contexts/ApiContext";
 
 export default function Register() {
+  // context
+  const { ApiAuth } = useApiContext();
+
   // formik
   const formik = useFormik({
     initialValues: { username: "", password: "", confirmPassword: "" },
@@ -22,13 +26,19 @@ export default function Register() {
 
     onSubmit: (values, actions) => {
       console.log(values);
+      ApiAuth.register(values, (err) => {
+        actions.setSubmitting(false);
+        console.log(err);
+      });
     },
   });
   //
   return (
     <div className="space-y-8">
       <header className="space-y-4">
-        <div className="text-4xl font-bold tracking-wider">Registrasi</div>
+        <div className="text-4xl text-gray-300 font-bold tracking-wider">
+          Registrasi
+        </div>
         <p className="text-gray-500">
           Lengkapi form untuk registrasi pengguna baru
         </p>

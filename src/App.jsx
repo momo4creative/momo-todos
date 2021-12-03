@@ -1,11 +1,9 @@
-import {} from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard, DashboardIndex, RoleAdmin } from "./pages-admin";
 import { Auth, AuthIndex, Home, Login, Register } from "./pages";
 
 export default function App() {
-  //
-
   return (
     <>
       <Routes>
