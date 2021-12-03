@@ -1,8 +1,17 @@
 import {} from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Footer, Header, Navbar } from "../../component/main";
 
 export default function Home() {
+  const location = useLocation();
+
+  if (
+    location.pathname == "/auth/login" ||
+    location.pathname == "/auth/register"
+  ) {
+    return <Outlet />;
+  }
+
   return (
     <main className="flex flex-col min-h-screen">
       <Header />

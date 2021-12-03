@@ -2,13 +2,7 @@ import {} from "react";
 import { motion } from "framer-motion";
 
 export default function Loader() {
-  const moveVariants = {
-    visible: {
-      x: [0, 32, 0],
-      transition: { duration: 1, ease: "easeInOut", repeat: Infinity },
-    },
-  };
-
+  //
   return (
     <div className="w-full min-h-screen flex justify-center items-center absolute top-0 left-0 bg-gray-900/50">
       <div className="">

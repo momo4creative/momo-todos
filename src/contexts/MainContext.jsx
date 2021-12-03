@@ -5,10 +5,10 @@ const MainContext = createContext();
 export const useMainContext = () => useContext(MainContext);
 
 export default function MainContextProvider({ children }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <MainContext.Provider>
+    <MainContext.Provider value={{ setIsLoading }}>
       {isLoading && <Loader />}
       <>{children}</>
     </MainContext.Provider>
